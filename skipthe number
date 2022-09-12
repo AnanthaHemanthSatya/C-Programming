@@ -1,0 +1,36 @@
+#include<stdio.h> 
+ int main() 
+ { 
+         int p,q,r,i; 
+         printf("Enter the value of p = "); 
+         scanf("%d",&p); 
+         printf("Enter the value of q = "); 
+         scanf("%d",&q); 
+         printf("Enter the value to be skipped = "); 
+         scanf("%d",&r); 
+         if(int(p) && int(q)) 
+         { 
+                 for(i=p;i<=q;i++) 
+                 { 
+                         if((i%10==r)) 
+                         { 
+                                 continue; 
+                         } 
+               if((i/10)%10==r) 
+                         { 
+                                 continue; 
+                         } 
+                         if((i/100)%10==r) 
+                         { 
+                                 continue; 
+                         } 
+                         printf("%d ",i); 
+                 } 
+         } 
+         else  
+         { 
+                 printf("\nInvalid input"); 
+         } 
+          
+         return 0; 
+ }
