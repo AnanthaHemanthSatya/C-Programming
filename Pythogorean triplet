@@ -1,0 +1,28 @@
+#include<stdio.h>
+int main()
+{
+int a,b,c,n;
+printf("Enter the value of n : ");
+scanf("%d",&n);
+if(n>0)
+{
+ 	for(a=1;a<=n;a++)
+	{
+    	for(b=a;b<=n;b++)
+		{
+        	for(c=b;c<=n;c++)
+			{
+            	if(c*c==a*a+b*b)
+				{
+            		printf("(%d , %d , %d) ",a,b,c);	
+				}
+			}
+		}
+	}
+}
+else 
+{
+	printf("Invalid input");
+}
+	return 0;
+}
