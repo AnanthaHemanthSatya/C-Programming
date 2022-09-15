@@ -2,22 +2,31 @@
 #include <stdlib.h> 
 int main()
 {
-	FILE *fptr;
+	FILE *fptr1, *fptr2;
 	char filename[100], c;
-	printf("Enter the filename to open \n");
-	scanf("%s", filename);
-	fptr = fopen("student.txt", "r");
-	if (fptr == NULL)
+
+	fptr1 = fopen("student.txt", "r");
+	if (fptr1 == NULL)
 	{
-		printf("Cannot open file \n");
+		printf("Cannot open file %s \n", filename);
 		exit(0);
-	}	
+	}
+	printf("Enter the filename to open for writing \n");
+	scanf("%s", filename);
+	fptr2 = fopen(filename, "w");
+	if (fptr2 == NULL)
+	{
+		printf("Cannot open file %s \n", filename);
+		exit(0);
+	}
+	c = fgetc(fptr1);
 	while (c != EOF)
 	{
-		printf ("%c", c);
-		c = fgetc(fptr);
+		fputc(c, fptr2);
+		c = fgetc(fptr1);
 	}
-
-	fclose(fptr);
+	printf("\nContents copied to %s", filename);
+	fclose(fptr1);
+	fclose(fptr2);
 	return 0;
 }
